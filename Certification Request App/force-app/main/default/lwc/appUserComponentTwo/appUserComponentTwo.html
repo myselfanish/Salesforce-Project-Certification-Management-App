@@ -1,0 +1,46 @@
+<template>
+
+    <lightning-card title="Requests Which are yet to Submit for Approval" icon-name="action:submit_for_approval">
+    </lightning-card>
+    <template for:each={Requests} for:item="request" for:index="i">
+        <lightning-card key={abc}>
+        
+            <lightning-record-view-form
+            record-id={request.Id}
+            object-api-name="Certification_Request__c"
+            key={abcd}>
+
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-output-field field-name="Name">
+                    </lightning-output-field>
+                    <lightning-output-field field-name="Employee__c">
+                    </lightning-output-field>
+                    <lightning-output-field field-name="Certification__c">
+                    </lightning-output-field>
+                    <!-- Your lightning-output-field components here -->
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-output-field field-name="Status__c">
+                    </lightning-output-field>
+                    <lightning-output-field field-name="Voucher__c">
+                    </lightning-output-field>
+                    <lightning-button-group>
+                        <lightning-button label="Submit for approval" variant="brand" value={i} onclick={submitreq}></lightning-button>
+                        
+                    </lightning-button-group>
+                    <!-- More lightning-output-field components here -->
+                </div>
+            </div>
+            
+
+            </lightning-record-view-form>
+            
+            <!-- <lightning-button-group>
+                <lightning-button label="Submit for approval" variant="brand" value={i} onclick={submitreq}></lightning-button>
+                
+            </lightning-button-group> -->
+        
+        </lightning-card>
+    </template>
+</template>

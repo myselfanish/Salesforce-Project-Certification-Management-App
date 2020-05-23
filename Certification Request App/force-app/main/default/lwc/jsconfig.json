@@ -1,0 +1,59 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/adminComponentOne": [
+                "adminComponentOne/adminComponentOne.js"
+            ],
+            "c/adminComponentThree": [
+                "adminComponentThree/adminComponentThree.js"
+            ],
+            "c/adminComponentTwo": [
+                "adminComponentTwo/adminComponentTwo.js"
+            ],
+            "c/appUserComponentOne": [
+                "appUserComponentOne/appUserComponentOne.js"
+            ],
+            "c/appUserComponentThree": [
+                "appUserComponentThree/appUserComponentThree.js"
+            ],
+            "c/appUserComponentTwo": [
+                "appUserComponentTwo/appUserComponentTwo.js"
+            ],
+            "c/certificationRequestAppComponent": [
+                "certificationRequestAppComponent/certificationRequestAppComponent.js"
+            ],
+            "c/certlookupcomponent": [
+                "certlookupcomponent/certlookupcomponent.js"
+            ],
+            "c/certrecordscomponent": [
+                "certrecordscomponent/certrecordscomponent.js"
+            ],
+            "c/certsearchcomponent": [
+                "certsearchcomponent/certsearchcomponent.js"
+            ],
+            "c/pubsub": [
+                "pubsub/pubsub.js"
+            ],
+            "c/accountCreator": [
+                "accountCreator/accountCreator.js"
+            ],
+            "c/cRUD": [
+                "cRUD/cRUD.js"
+            ],
+            "c/mobileManagement": [
+                "mobileManagement/mobileManagement.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

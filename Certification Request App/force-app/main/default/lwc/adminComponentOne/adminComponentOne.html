@@ -1,0 +1,444 @@
+<template>
+  <lightning-card
+    title="Welcome to Certification Management App..!!!"
+    icon-name="custom:custom14"
+  >
+    <div class="slds-m-around_medium">
+      <p>Hello, App Admin</p>
+
+      <lightning-button-group>
+        <!-- <lightning-button
+          label="Add New Employee"
+          onclick={empform}
+          variant="brand-outline"
+        ></lightning-button> -->
+        <lightning-button
+          label="Add New Certification"
+          onclick={certform}
+          variant="brand-outline"
+        ></lightning-button>
+        <lightning-button
+          label="Add New Voucher"
+          onclick={vouform}
+          variant="brand-outline"
+        ></lightning-button>
+      </lightning-button-group>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <lightning-button-group>
+        <lightning-button
+          label="View All Employees"
+          onclick={viewemps}
+          variant="brand-outline"
+        ></lightning-button>
+        <lightning-button
+          label="View All Certifications"
+          onclick={viewcerts}
+          variant="brand-outline"
+        ></lightning-button>
+        <lightning-button
+          label="View All Vouchers"
+          onclick={viewvous}
+          variant="brand-outline"
+        ></lightning-button>
+      </lightning-button-group>
+    </div>
+  </lightning-card>
+
+
+
+
+  <template if:true={viewempflag}>
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-label="Meaningful description of the modal content"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <header class="slds-modal__header slds-modal__header_empty">
+          Employees List
+        </header>
+        <div
+          class="slds-modal__content slds-p-around_medium"
+          id="modal-content-id-1">
+          <template for:each={Employees} for:item="employee" for:index="i">
+              <lightning-record-view-form
+              record-id={employee.Id}
+              object-api-name="Employee__c"
+              key={abcd}>
+              <div class="slds-box">
+                <div class="slds-grid">
+                  <div class="slds-col slds-size_1-of-2">
+                <lightning-output-field field-name="Name">
+                </lightning-output-field>
+                <lightning-output-field field-name="Email_for_Notifications__c">
+                </lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                <lightning-output-field field-name="Employee_ID__c">
+                </lightning-output-field>
+              </div>
+              </div>
+                
+              </div>
+              
+
+              </lightning-record-view-form>
+        </template>
+        </div>
+        <footer class="slds-modal__footer">
+          <button class="slds-button slds-button_neutral" onclick={closepopup}>
+            Close
+          </button>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+
+  <!--Pop Up for creating New Certificate-->
+  <template if:true={viewcertflag}>
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-label="Meaningful description of the modal content"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <header class="slds-modal__header slds-modal__header_empty">
+          <p>Certifications List</p>
+        </header>
+        <div
+          class="slds-modal__content slds-p-around_medium"
+          id="modal-content-id-2"
+        >
+        <template for:each={Certifications} for:item="certification" for:index="i">
+          <lightning-record-edit-form
+              record-id={certification.Id}
+              object-api-name="Certification__c"
+              key={abcd}>
+              <div class="slds-box">
+                <div class="slds-grid">
+                  <div class="slds-col slds-size_1-of-2">
+                <lightning-input-field field-name="Name">
+                </lightning-input-field>
+                <lightning-output-field field-name="Certification_ID__c">
+                </lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                <lightning-input-field field-name="Certification_Cost__c">
+                </lightning-input-field>
+                <lightning-button
+                  class="slds-m-top_small"
+                  variant="brand"
+                  type="submit"
+                  name="update"
+                  label="Update">
+                </lightning-button>
+              </div>
+              </div>
+              </div>
+              
+
+              </lightning-record-edit-form>
+      </template>
+        </div>
+        <footer class="slds-modal__footer">
+          <button class="slds-button slds-button_neutral" onclick={closepopup}>
+            Close
+          </button>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+
+  <!--Pop Up for creating New Voucher-->
+  <template if:true={viewvouflag}>
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-label="Meaningful description of the modal content"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <header class="slds-modal__header slds-modal__header_empty">
+          <p>Vouchers List</p>
+        </header>
+
+        
+        <div
+          class="slds-modal__content slds-p-around_medium"
+          id="modal-content-id-3"
+        >
+        <template for:each={Vouchers} for:item="voucher" for:index="i">
+          <lightning-record-edit-form
+              record-id={voucher.Id}
+              object-api-name="Voucher__c"
+              key={abcd}>
+              <div class="slds-box">
+                <div class="slds-grid">
+                  <div class="slds-col slds-size_1-of-2">
+                <lightning-input-field field-name="Name">
+                </lightning-input-field>
+                <lightning-input-field field-name="Certification__c">
+                </lightning-input-field>
+              </div>
+              <div class="slds-col slds-size_1-of-2">
+                <lightning-input-field field-name="Active__c">
+                </lightning-input-field>
+                <lightning-button
+                  class="slds-m-top_small"
+                  variant="brand"
+                  type="submit"
+                  name="update"
+                  label="Update">
+                </lightning-button>
+                </div>
+                </div>
+              </div>
+              
+
+              </lightning-record-edit-form>
+      </template>
+        </div>
+
+        <footer class="slds-modal__footer">
+          <button class="slds-button slds-button_neutral" onclick={closepopup}>
+            Close
+          </button>
+          
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <template if:true={empflag}>
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-label="Meaningful description of the modal content"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <header class="slds-modal__header slds-modal__header_empty">
+          <p>New Employee form</p>
+        </header>
+        <div
+          class="slds-modal__content slds-p-around_medium"
+          id="modal-content-id-4"
+        >
+          <lightning-input
+            label="Employee Name"
+            value={EmpName}
+            type="String"
+            required
+            onchange={EmpNameChange}
+          ></lightning-input>
+          <lightning-input
+            label="Employee Id"
+            value={EmpId}
+            type="Number"
+            required
+            onchange={EmpIdChange}
+          ></lightning-input>
+          <lightning-input
+            label="Employee Email"
+            value={EmpMail}
+            type="Email"
+            required
+            onchange={EmpMailChange}
+          ></lightning-input>
+          <lightning-input
+            label="Primary Skill"
+            value={EmpPS}
+            type="String"
+            required
+            onchange={EmpPSChange}
+          ></lightning-input>
+          <lightning-input
+            label="Secondary Skill"
+            value={EmpSS}
+            type="String"
+            onchange={EmpSSChange}
+          ></lightning-input>
+          <lightning-input
+            label="Employee Experience"
+            value={EmpExp}
+            type="Number"
+            required
+            onchange={EmpExpChange}
+          ></lightning-input>
+          <lightning-input
+            label="Comments"
+            value={EmpComm}
+            type="String"
+            onchange={EmpCommChange}
+          ></lightning-input>
+        </div>
+        <footer class="slds-modal__footer">
+          <button class="slds-button slds-button_neutral" onclick={closepopup}>
+            Cancel
+          </button>
+          <button class="slds-button slds-button_brand" onclick={addemp}>
+            Add
+          </button>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template> -->
+
+  <!--Pop Up for creating New Certificate-->
+  <template if:true={certflag}>
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-label="Meaningful description of the modal content"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <header class="slds-modal__header slds-modal__header_empty">
+          <p>New Certification form</p>
+        </header>
+        <div
+          class="slds-modal__content slds-p-around_medium"
+          id="modal-content-id-5"
+        >
+          <lightning-input
+            label="Certification Name"
+            value={CertName}
+            type="String"
+            required
+            onchange={CertNameChange}
+          ></lightning-input>
+          <lightning-input
+            label="Certification Id"
+            value={CertId}
+            type="Number"
+            required
+            onchange={CertIdChange}
+          ></lightning-input>
+          <lightning-input
+            label="Certification Cost"
+            value={CertCost}
+            type="Number"
+            required
+            onchange={CertCostChange}
+          ></lightning-input>
+          <lightning-input
+            label="Certification Comments"
+            value={CertComm}
+            type="String"
+            onchange={CertCommChange}
+          ></lightning-input>
+        </div>
+        <footer class="slds-modal__footer">
+          <button class="slds-button slds-button_neutral" onclick={closepopup}>
+            Cancel
+          </button>
+          <button class="slds-button slds-button_brand" onclick={addcert}>
+            Add
+          </button>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+
+  <!--Pop Up for creating New Voucher-->
+  <template if:true={vouflag}>
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-label="Meaningful description of the modal content"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <header class="slds-modal__header slds-modal__header_empty">
+          <p>New Voucher form</p>
+        </header>
+
+        
+        <div
+          class="slds-modal__content slds-p-around_medium"
+          id="modal-content-id-6"
+        >
+          <lightning-input
+            label="Voucher Id"
+            value={VouId}
+            type="String"
+            minlength="10"
+            maxlength="10"
+            message-when-bad-input="Id should be 10 characters long."
+            required
+            onchange={VouIdChange}
+          ></lightning-input>
+          <lightning-input
+            label="Voucher Cost"
+            value={VouCost}
+            type="Currency"
+            required
+            onchange={VouCostChange}
+          ></lightning-input>
+          <lightning-input
+            label="Voucher Validity"
+            value={VouValid}
+            type="date"
+            required
+            onchange={VouValidChange}
+          ></lightning-input>
+          <c-certlookupcomponent
+            object-name="Certification__c"
+            field-name="Name"
+            label="Certification"
+            parentidfield="Certification__c"
+            onselect={handleAutoSelect}
+            iconname="standard:account"
+          ></c-certlookupcomponent>
+
+          <lightning-input
+            label="Voucher Comments"
+            value={VouComm}
+            type="Text"
+            onchange={VouCommChange}
+          ></lightning-input>
+        </div>
+
+        <footer class="slds-modal__footer">
+          <button class="slds-button slds-button_neutral" onclick={closepopup}>
+            Cancel
+          </button>
+          <button class="slds-button slds-button_brand" onclick={addvou}>
+            Add
+          </button>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+</template>

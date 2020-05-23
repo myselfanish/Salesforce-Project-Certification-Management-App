@@ -1,0 +1,60 @@
+<template>
+    <div class="slds-box">
+    <!-- <lightning-card> -->
+    <lightning-input label="Enter Mobile Id" value={MobId} type="String" required onchange={MobIdChange}></lightning-input>
+    <lightning-input label="Enter Mobile Name" value={MobName} type="String" required onchange={MobNameChange}></lightning-input>
+    <lightning-input label="Enter Mobile Brand" value={MobBrand} type="String" required  onchange={MobBrandChange}></lightning-input>
+    <lightning-input label="Enter Mobile Price" value={MobPrice} type="Number" required onchange={MobPriceChange}></lightning-input>
+    <br>
+    <lightning-button label="Add Mobile" variant="brand" onclick={addnewmobile}></lightning-button>
+    <br>
+    </div>
+    <!-- </lightning-card> -->
+    
+    <lightning-card title = "List of All Mobiles : ">
+    </lightning-card>
+    <template for:each={Mobiles} for:item="mobile" for:index="i">
+        <lightning-card key={abc}>
+            <!-- <div class="slds-box"> -->
+            <lightning-record-view-form
+              record-id={mobile.Id}
+              object-api-name="Mobile__c"
+              key={abcd}>
+              <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-4">
+                    <lightning-output-field field-name="Mobile_Id__c">
+                    </lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-4">
+                    <lightning-output-field field-name="Name">
+                    </lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-4">
+                    <lightning-output-field field-name="Brand__c">
+                    </lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-4">
+                    <lightning-output-field field-name="Price__c">
+                    </lightning-output-field>
+                   
+                </div>
+            </div>
+              
+
+              </lightning-record-view-form>
+        <!-- </div> -->
+        </lightning-card>
+    </template>
+
+
+
+
+
+
+
+
+
+
+
+
+</template>

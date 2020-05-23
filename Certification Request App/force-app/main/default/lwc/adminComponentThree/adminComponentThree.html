@@ -1,0 +1,236 @@
+<template>
+    <lightning-tabset>
+        <!-- <lightning-tab label="Approved Requests">
+            <template key={xyz}>
+            <lightning-card title="Requests Which are Approved" icon-name="action:approval">
+            </lightning-card>
+            <template for:each={Requests} for:item="request" for:index="i">
+                <lightning-card key={abc}>
+
+                    {request.Status__c}
+
+                    <lightning-record-view-form
+              record-id={request.Id}
+              object-api-name="Certification_Request__c"
+              key={abcd}>
+              <div class="slds-box">
+              <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-output-field field-name="Name">
+                    </lightning-output-field>
+                    <lightning-output-field field-name="Employee__c">
+                    </lightning-output-field>
+                    <lightning-output-field field-name="Certification__c">
+                    </lightning-output-field>
+                    
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-output-field field-name="Status__c">
+                    </lightning-output-field>
+                    <lightning-output-field field-name="Voucher__c">
+                    </lightning-output-field>
+                   
+                </div>
+            </div>
+            </div>
+              
+
+              </lightning-record-view-form>
+                </lightning-card>
+            </template>
+
+        </template>
+        </lightning-tab> -->
+
+
+
+
+
+
+
+
+
+        <lightning-tab label="Approved Requests">
+            <template key={xyz1}>
+            <lightning-card title="Requests Which are Approved" icon-name="action:approval">
+            </lightning-card>
+
+            <template for:each={Requests} for:item="request" for:index="i">
+                <lightning-card key={abc1}>
+                    <lightning-record-view-form
+                    record-id={request.Id}
+                    object-api-name="Certification_Request__c"
+                    key={abcd}>
+                    <div class="slds-box">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="Name">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Employee__c">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Certification__c">
+                            </lightning-output-field>
+                            <!-- Your lightning-output-field components here -->
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="Status__c">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Voucher__c">
+                            </lightning-output-field>
+                            <!-- More lightning-output-field components here -->
+                        </div>
+                    </div>
+                    </div>
+                    
+      
+                    </lightning-record-view-form>
+
+                </lightning-card>
+            </template>
+
+        </template>
+        </lightning-tab>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <lightning-tab label="Rejected Requests">
+            <template key={xyz1}>
+            <lightning-card title="Requests Which are Rejected" icon-name="action:reject">
+            </lightning-card>
+            <template for:each={Requests1} for:item="request1" for:index="i">
+                <lightning-card key={abc1}>
+                    <lightning-record-view-form
+                    record-id={request1.Id}
+                    object-api-name="Certification_Request__c"
+                    key={abcd}>
+                    <div class="slds-box">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="Name">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Employee__c">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Certification__c">
+                            </lightning-output-field>
+                            <!-- Your lightning-output-field components here -->
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="Status__c">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Voucher__c">
+                            </lightning-output-field>
+                            <!-- More lightning-output-field components here -->
+                        </div>
+                    </div>
+                    </div>
+                    
+      
+                    </lightning-record-view-form>
+
+                </lightning-card>
+            </template>
+
+        </template>
+        </lightning-tab>
+        <lightning-tab label="Voucher Assigned Requests">
+            <template key={xyz1}>
+            <lightning-card title="Requests Which are Assigned" icon-name="standard:assigned_resource">
+            </lightning-card>
+            <template for:each={Requests2} for:item="request1" for:index="i">
+                <lightning-card key={abc2}>
+                    <lightning-record-view-form
+                    record-id={request1.Id}
+                    object-api-name="Certification_Request__c"
+                    key={abcd}>
+                    <div class="slds-box">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="Name">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Employee__c">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Certification__c">
+                            </lightning-output-field>
+                            <!-- Your lightning-output-field components here -->
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="Status__c">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Voucher__c">
+                            </lightning-output-field>
+                            <!-- More lightning-output-field components here -->
+                        </div>
+                    </div>
+                    </div>
+                    
+      
+                    </lightning-record-view-form>
+
+                </lightning-card>
+            </template>
+
+        </template>
+        </lightning-tab>
+    </lightning-tabset>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <template>
+    <lightning-card title="Requests Which are Approved" icon-name="custom:custom14">
+    </lightning-card>
+
+    <template key={abcd}>
+        <lightning-tabset>
+            <lightning-tab label="Approved Requests">
+                <p>Hellooo</p> -->
+                <!-- <template for:each={Requests} for:item="request" for:index="i">
+                    <lightning-card key={abc}>
+                        <p>Request Id : {request.Name} Employee Name : {request.Employee__c} Certification Name : {request.Certification__c} </p>
+                        <p> Status : {request.Status__c} Voucher :  {request.Voucher__c}  Comments : {request.Comments__c}  </p>
+                    
+                    </lightning-card>
+                </template> -->
+            <!-- </lightning-tab>
+            <lightning-tab label="Rejected Requests" title="2nd tab extended title"> -->
+                <!-- <template for:each={Requests1} for:item="request1" for:index="i">
+                    <lightning-card key={abc1}>
+                        <p>Request Id : {request1.Name} Employee Name : {request1.Employee__c} Certification Name : {request1.Certification__c} </p>
+                        <p> Status : {request1.Status__c} Voucher :  {request1.Voucher__c}  Comments : {request1.Comments__c}  </p>
+                   
+
+                    </lightning-card>
+                </template> -->
+            <!-- </lightning-tab>
+        <lightning-tab label="Rejected Requests">
+            Second tab
+        </lightning-tab>
+        </lightning-tabset>            
+    </template>
+    
+
+
+    
+    
+</template> -->

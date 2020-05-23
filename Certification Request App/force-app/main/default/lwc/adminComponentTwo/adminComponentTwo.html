@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title="Requests Which are yet to Approve or Reject" icon-name="standard:approval">
+        <lightning-button label="Click to Refresh"  variant="brand-outline" onclick={refreshButtonClicked}></lightning-button>
+    </lightning-card>
+    
+    <template for:each={Requests} for:item="request" for:index="i">
+        <lightning-card key={abc}>
+            <div class="slds-box">
+            <lightning-record-view-form
+              record-id={request.Id}
+              object-api-name="Certification_Request__c"
+              key={abcd}>
+              <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-output-field field-name="Name">
+                    </lightning-output-field>
+                    <lightning-output-field field-name="Employee__c">
+                    </lightning-output-field>
+                    <lightning-output-field field-name="Certification__c">
+                    </lightning-output-field>
+                    <!-- Your lightning-output-field components here -->
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-output-field field-name="Status__c">
+                    </lightning-output-field>
+                    <lightning-output-field field-name="Voucher__c">
+                    </lightning-output-field>
+                    <lightning-button-group>
+                        <lightning-button label="Approve" value={i} variant="brand" onclick={approvereq}></lightning-button>
+                        <lightning-button label="Reject" value={i} variant="destructive" onclick={rejectreq}></lightning-button>
+                        
+                    </lightning-button-group>
+                    <!-- More lightning-output-field components here -->
+                </div>
+            </div>
+              
+
+              </lightning-record-view-form>
+            
+            
+            <!-- <lightning-button-group>
+                <lightning-button label="Approve" value={i} variant="brand" onclick={approvereq}></lightning-button>
+                <lightning-button label="Reject" value={i} variant="destructive" onclick={rejectreq}></lightning-button>
+                
+            </lightning-button-group> -->
+        </div>
+        </lightning-card>
+    </template>
+</template>

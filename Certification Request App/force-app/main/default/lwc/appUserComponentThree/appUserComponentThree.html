@@ -1,0 +1,163 @@
+<template>
+    <lightning-tabset>
+        <lightning-tab label="Assigned Requests">
+            <lightning-card title="Requests Which are Yet to Update Exam Status" icon-name="standard:assigned_resource">
+            </lightning-card>
+            <template for:each={Requests} for:item="request" for:index="i">
+                <lightning-card key={abc}>
+                    <div class="slds-box"> 
+            <lightning-record-view-form
+        record-id={request.Id}
+        object-api-name="Certification_Request__c"
+        key={abcd}>
+        
+        <div class="slds-grid">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-output-field field-name="Name">
+            </lightning-output-field>
+            <lightning-output-field field-name="Employee__c">
+            </lightning-output-field>
+            <lightning-output-field field-name="Certification__c">
+            </lightning-output-field>
+            <!-- Your lightning-output-field components here -->
+        </div>
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-output-field field-name="Status__c">
+            </lightning-output-field>
+            <lightning-output-field field-name="Voucher__c">
+            </lightning-output-field>
+            <lightning-button-group>
+                <lightning-button label="Passed" value={i} variant="success" onclick={passedreq}></lightning-button>
+                <lightning-button label="Failed" value={i} variant="destructive" onclick={failedreq}></lightning-button>
+                
+            </lightning-button-group>
+            <!-- More lightning-output-field components here -->
+        </div>
+    </div>
+    
+        
+
+        </lightning-record-view-form>
+                    
+                    <!-- <lightning-button-group>
+                        <lightning-button label="Passed" value={i} variant="success" onclick={passedreq}></lightning-button>
+                        <lightning-button label="Failed" value={i} variant="destructive" onclick={failedreq}></lightning-button>
+                        
+                    </lightning-button-group> -->
+                    </div>
+                </lightning-card>
+            </template>
+        </lightning-tab>
+        <lightning-tab label="Passed Requests">
+            <lightning-card title="Requests Which are Passed" icon-name="action:approval">
+            </lightning-card>
+            <template for:each={Requests1} for:item="request1" for:index="i">
+                <lightning-card key={abc1}>
+                    <lightning-record-view-form
+                    record-id={request1.Id}
+                    object-api-name="Certification_Request__c"
+                    key={abcd}>
+                    <div class="slds-box">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="Name">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Employee__c">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Certification__c">
+                            </lightning-output-field>
+                            <!-- Your lightning-output-field components here -->
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="Status__c">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Voucher__c">
+                            </lightning-output-field>
+                            <!-- More lightning-output-field components here -->
+                        </div>
+                    </div>
+                    </div>
+                    
+      
+                    </lightning-record-view-form>
+
+                </lightning-card>
+            </template>
+        </lightning-tab>
+        <lightning-tab label="Failed Requests">
+            <lightning-card title="Requests Which are Failed" icon-name="action:reject">
+            </lightning-card>
+            <template for:each={Requests2} for:item="request1" for:index="i">
+                <lightning-card key={abc2}>
+                    <lightning-record-view-form
+                    record-id={request1.Id}
+                    object-api-name="Certification_Request__c"
+                    key={abcd}>
+                    <div class="slds-box">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="Name">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Employee__c">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Certification__c">
+                            </lightning-output-field>
+                            <!-- Your lightning-output-field components here -->
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name="Status__c">
+                            </lightning-output-field>
+                            <lightning-output-field field-name="Voucher__c">
+                            </lightning-output-field>
+                            <!-- More lightning-output-field components here -->
+                        </div>
+                    </div>
+                    </div>
+                    
+      
+                    </lightning-record-view-form>
+
+                </lightning-card>
+            </template>
+        </lightning-tab>
+    </lightning-tabset>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <template>
+    <lightning-card title="Requests Which are Assigned" icon-name="custom:custom14">
+    </lightning-card>
+
+    <template for:each={Requests} for:item="request" for:index="i">
+        <lightning-card key={abc}>
+            <p>Request Id : {request.Name} Employee Name : {request.Employee__c} Certification Name : {request.Certification__c} </p>
+            <p> Status : {request.Status__c} Voucher :  {request.Voucher__c}  Comments : {request.Comments__c}  </p>
+            <lightning-button-group>
+                <lightning-button label="Passed" value={i} variant="brand" onclick={passedreq}></lightning-button>
+                <lightning-button label="Failed" value={i} onclick={failedreq}></lightning-button>
+                
+            </lightning-button-group>
+        </lightning-card>
+    </template>
+</template> -->
